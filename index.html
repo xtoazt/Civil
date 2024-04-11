@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-H3NNC4126L"></script>
+
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            
+            gtag('config', 'G-H3NNC4126L');
+        </script>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Google Docs</title>
+        <link rel="stylesheet" type="text/css" href="./styles/style.css">
+        <link rel="icon" type="image/x-icon" href="https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_document_x16.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="header">
+            <ion-icon name="caret-back-outline" onclick="window.history.go(-1);"></ion-icon>
+            <ion-icon name="caret-forward-outline" onclick="window.history.go(+1);"></ion-icon>
+
+            <a href="/">Civil <h2 class="logo">Proxy</h2></a>
+
+            <div class="searchbar">
+                <input type="text" placeholder="Search" class="urlInput">
+            </div>
+        </div>
+
+        <ul class="suggestions"></ul>
+
+        <ul class="dropdownOptions">
+            <li><a href=""><ion-icon name="hammer-outline" title="Settings (WIP!)"></ion-icon></a></li>
+            <li><a href="javascript:window.location.href='/art'"><ion-icon name="browsers-outline" title="Tabs (WIP!)"></ion-icon></ion-icon></a></li>
+            <li><a href="javascript:window.location.href='/geometry';"><ion-icon name="bug-outline" title="Exploits (WIP!)"></ion-icon></a></li>
+        </ul>
+
+        <iframe class="frame" sandbox="allow-scripts allow-same-origin"></iframe>
+
+        <script defer>
+            window.addEventListener('wheel', (e) => {
+                if (e.deltaY <= 7) {
+                    alert("Life is unfair.\n\nAnd it's not fair that life is unfair.\n\n- Edward Abbey");
+                }
+            });
+        </script>
+
+        <script type="module" src="./javascripts/script.js"></script>
+
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    </body>
+</html>

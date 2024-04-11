@@ -1,0 +1,5 @@
+# Local Netlify folder
+.netlify/
+
+# Dist directory (in case anything leaks into it)
+dist/
