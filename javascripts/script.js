@@ -75,6 +75,10 @@ async function frameLoad(url) {
     document.querySelector('.jfN4p').src = 'https://corsproxy.io/?https%3A%2F%2Fwww.google.com%2Fimages%2Fbranding%2Fgooglelogo%2F2x%2Fgooglelogo_color_92x30dp.png';
     window.onbeforeunload = () => 1; /* Makes the page single-use */
 
+    updateATags();
+};
+
+function updateATags() {
     document.querySelectorAll('a')
         .forEach((a) => {
             a.addEventListener('click', (e) => {
@@ -88,8 +92,9 @@ async function frameLoad(url) {
                         } else {
                             document.querySelector('head').insertAdjacentHTML('afterbegin', `<base href="${a.href}">`);
                         }
+                        updateATags();
                     })
                     .catch((err) => console.error(err));
             });
         });
-};
+}
