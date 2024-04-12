@@ -1,0 +1,60 @@
+.games
+{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    top: 20vh;
+    left: 0px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: transparent;
+    width: 100%;
+    height: auto;
+    div
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        border-radius: 20px;
+        width: 100px;
+        height: 100px;
+        transition: 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+        &:hover
+        {
+            transform: scale(+1.14);
+        }
+    }
+    img
+    {
+        cursor: pointer;
+    }
+    .btd5
+    {
+        transition: 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+        &:hover
+        {
+            transform: scale(+1.14);
+        }
+    }
+    .pg
+    {
+        transition: 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+        &:hover
+        {
+            transform: scale(+1.14);
+        }
+    }
+    .mg
+    {
+        transition: 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+        &:hover
+        {
+            transform: scale(+1.14);
+        }
+    }
+}
