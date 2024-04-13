@@ -75,12 +75,12 @@ body
             background-color: #b2f1dcdc;
             border-radius: 35px;
             width: 60%;
-            height: 4vh;
+            height: 7vh;
             .urlInput
             {
                 padding-left: 10%;
                 background: linear-gradient(to right, #a8ff78, #78ffd6);
-                border-radius: 45px;
+                border-radius: 50px;
                 border: none;
                 color: #333;
                 font-size: 14px;
@@ -88,7 +88,7 @@ body
                 text-transform: lowercase;
                 font-family: 'Alata', sans-serif;
                 width: 100%;
-                height: 4vh;
+                height: 100%;
                 &:focus
                 {
                     outline: none;

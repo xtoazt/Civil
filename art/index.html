@@ -15,7 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Google Docs</title>
-        <link rel="stylesheet" type="text/css" href="../styles/style.css">
+        <link rel="stylesheet" type="text/css" href="../styles/tabs.css">
         <link rel="icon" type="image/x-icon" href="https://ssl.gstatic.com/docs/doclist/images/mediatype/icon_1_document_x16.png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,12 +24,38 @@
     </head>
 
     <body>
-        <div class="header">
-            <a href="/" title="Uses Browserling!">Civil <h2 class="logo">Tabs</h2></a>
-
-            <div class="searchbar">
-                <input type="text" placeholder="https://www.coolmathgames.com" class="urlInput">
+        <div class="container">
+            <div class="tabs">
+                <div class="tab">
+                    <h2>New <span>Tab</span></h2>
+                </div>
             </div>
         </div>
+
+        <script>
+            const tabs = document.querySelectorAll('.tab');
+            let originalX = 0;
+            let isDragging = false;
+
+            tabs
+                .forEach((t) => {
+                    t.addEventListener('click', (e) => {
+                        e.preventDefault();
+
+                        originalX = t.offsetLeft;
+                        isDragging = true;
+
+                        t.addEventListener('drag', (e) => {
+                            e.preventDefault();
+
+                            if (tabs.length == 1 && isDragging) {
+                                
+                            } else if (tabs.length > 1 && isDragging) {
+                                const deltaX = e.clientX = originalX
+                            }
+                        });
+                    });
+                });
+        </script>
     </body>
 </html>
