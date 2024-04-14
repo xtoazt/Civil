@@ -71,8 +71,14 @@ async function frameLoad(url) {
         })
         .catch((err) => console.error(err));
 
-    document.querySelector('head').insertAdjacentHTML('afterbegin', `<base href="https://corsproxy.io/?${encodeURIComponent('https://www.google.com')}">`);
-    document.querySelector('.jfN4p').src = 'https://corsproxy.io/?https%3A%2F%2Fwww.google.com%2Fimages%2Fbranding%2Fgooglelogo%2F2x%2Fgooglelogo_color_92x30dp.png';
+    document.querySelectorAll('[src]')
+        .forEach((elem) => {
+            if (elem.getAttribute('src').startsWith('/') && url.startsWith('https://www.google.com/')) {
+                let newSrc = 'https://api.allorigins.win/raw?url=' + 'https://www.google.com' + elem.getAttribute('src');
+                elem.setAttribute('src', newSrc);
+            }
+        });
+
     window.onbeforeunload = () => 1; /* Makes the page single-use */
 
     updateATags();
@@ -97,4 +103,4 @@ function updateATags() {
                     .catch((err) => console.error(err));
             });
         });
-}
+};
