@@ -93,8 +93,8 @@ function updateATags() {
                     .then((res) => res.text())
                     .then((text) => {
                         document.documentElement.innerHTML = text;
-                        if (a.href.includes('google.com')) {
-                            document.querySelector('head').insertAdjacentHTML('afterbegin', `<base href="https://corsproxy.io/?${encodeURIComponent(a.href)}">`);
+                        if (a.href.startsWith('/')) {
+                            a.href = corsUrl + 'https://www.google.com' + a.getAttribute('href');
                         } else {
                             document.querySelector('head').insertAdjacentHTML('afterbegin', `<base href="${a.href}">`);
                         }
