@@ -104,3 +104,24 @@ function updateATags() {
             });
         });
 };
+
+// Inspired off of:
+// https://github.com/binary-person/womginx/blob/master/public/wombat-handler.js#L3
+// Please take a look at that file to get a brief understanding of what this code
+// does under the hood.
+
+/* function rewrite() {
+    const rewriteDoubleSlash = window.location.pathname.match(/\/main(?<mod>\/[^\/_]+_)?(?<url_preslash>\/(?:http|ws)s?:\/)(?<url_postslash>[^\/].*)/);
+
+    if (rewriteDoubleSlash) {
+        window.history.pushState(null, null, '/languagearts' + (rewriteDoubleSlash.groups.mod || '') + rewriteDoubleSlash.groups.url_postslash + window.location.hash);
+    }
+    
+    const mergeDoubleSlash = (url) => {
+        if (!rewriteDoubleSlash || !/^((http|ws)s?:\/)/.test(url.toString())) {
+            return url;
+        }
+
+        return url.toString().slice(0, 7) + url.toString().slice(7).replace(/\/+/g, '/');
+    }
+} */
