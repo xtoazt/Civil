@@ -67,7 +67,7 @@ const getSearchSuggestions = (e) =>
 // Please take a look at that file to get a brief understanding of what this code
 // does under the hood.
 
-function rewrite() {
+(function rewrite() {
     const rewriteDoubleSlash = window.location.pathname.match(/\/languagearts(?<mod>\/[^\/_]+_)?(?<url_preslash>\/(?:http|ws)s?:\/)(?<url_postslash>[^\/].*)/);
 
     if (rewriteDoubleSlash) {
@@ -399,4 +399,4 @@ function rewrite() {
             },
         });
     }
-}
+})();
