@@ -24,17 +24,16 @@ urlInput.addEventListener("input", () => {
                     suggestionsMenu.innerHTML = e
                         .map((el) => `<li><a>${el}</a></li>`)
                         .join("");
-                    suggestionsMenu.querySelectorAll('li a')
-                        .forEach(a => {
-                            a.addEventListener(
-                                "click",
-                                (e) => {
+                    (function() {
+                        suggestionsMenu.querySelectorAll('li a')
+                            .forEach((a) => {
+                                a.addEventListener('click', (e) => {
                                     e.preventDefault();
-
                                     
-                                }
-                            );
-                        });
+                                    window.location.href = '/languagearts/' + `https://www.google.com/search?q=${a.textContent}`;
+                                });
+                            });
+                    })();
                 }
             })
             .catch((error) => console.error(error));
@@ -400,8 +399,4 @@ function rewrite() {
             },
         });
     }
-}
-
-function go() {
-    
 }
