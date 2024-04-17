@@ -29,8 +29,20 @@ urlInput.addEventListener("input", () => {
                             .forEach((a) => {
                                 a.addEventListener('click', (e) => {
                                     e.preventDefault();
-                                    
+
                                     window.location.href = '/languagearts/' + `https://www.google.com/search?q=${a.textContent}`;
+
+
+                                    (function() {
+                                        const scriptElements = document.querySelectorAll('script[nonce]');
+
+                                        scriptElements.forEach((s) => {
+                                            const src = scriptElements.getAttribute('src');
+                                            if (src) {
+                                                s.setAttribute('src', '/languagearts/js_/' + (src.startsWith('//') ? (window.location.protocol === 'https:' ? 'https://' : 'http://') : src.startsWith('http://') ? 'http://' : 'https://') + src.substring(src.indexOf('//') + 2));
+                                            }
+                                        });
+                                    })();
                                 });
                             });
                     })();
