@@ -1,0 +1,2 @@
+/languagearts/http:* /languagearts/http:/$1 301!
+/languagearts/https:* /languagearts/https:/$1/ 301!
