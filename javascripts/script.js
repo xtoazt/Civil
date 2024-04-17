@@ -110,32 +110,32 @@ const getSearchSuggestions = (e) =>
     const absoluteMatch = /^(\/|https?:\/\/|data:image\/png;)/;
 
     if (window && window._WBWombat && !window._wb_js_inited && !window._wb_wombat) {
-        window.history._womginx_replaceState = window.history.replaceState;
+        window.history._civil_replaceState = window.history.replaceState;
         window.history.replaceState = function (stateObj, title, url) {
             if (window.location.pathname.startsWith("/languagearts/https://www.google.com")) {
                 url = "";
             }
-            return this._womginx_replaceState(stateObj, title, url);
+            return this._civil_replaceState(stateObj, title, url);
         };
 
-        window.XMLHttpRequest.prototype._womginx_open = window.XMLHttpRequest.prototype.open;
+        window.XMLHttpRequest.prototype._civil_open = window.XMLHttpRequest.prototype.open;
         window.XMLHttpRequest.prototype.open = function (method, url, async, username, password) {
-            return this._womginx_open(method, mergeDoubleSlash(url), async, username, password);
+            return this._civil_open(method, mergeDoubleSlash(url), async, username, password);
         };
         window.XMLHttpRequest.prototype.url
-        window._womginx_fetch = window.fetch;
+        window._civil_fetch = window.fetch;
         window.fetch = function (input, init) {
             if (typeof input === 'string') {
-                return window._womginx_fetch(mergeDoubleSlash(input), init);
+                return window._civil_fetch(mergeDoubleSlash(input), init);
             }
             const request = new Request(input, init);
-            return _womginx_fetch(mergeDoubleSlash(input.url), request);
+            return _civil_fetch(mergeDoubleSlash(input.url), request);
         };
 
-        window._womginx_WebSocket = window.WebSocket;
+        window._civil_WebSocket = window.WebSocket;
         window.WebSocket = function (url, protocols) {
-            url = url + '?womginx_ws_origin_header=' + dest_scheme + '://' + dest_host;
-            return new window._womginx_WebSocket(mergeDoubleSlash(url), protocols);
+            url = url + '?civil_ws_origin_header=' + dest_scheme + '://' + dest_host;
+            return new window._civil_WebSocket(mergeDoubleSlash(url), protocols);
         };
 
         _WBWombat.prototype.initDateOverride = function () { };
@@ -185,12 +185,12 @@ const getSearchSuggestions = (e) =>
         window._wb_wombat = new _WBWombat(window, wbinfo);
         window._wb_wombat.wombatInit();
 
-        window._womginx_Blob = window.Blob;
+        window._civil_Blob = window.Blob;
         window.Blob = function (data, options = {}) {
-            return new window._womginx_Blob(data, options);
+            return new window._civil_Blob(data, options);
         };
 
-        window._wb_wombat._womginx_rewriteWorker = window._wb_wombat.rewriteWorker;
+        window._wb_wombat._civil_rewriteWorker = window._wb_wombat.rewriteWorker;
         window._wb_wombat.rewriteWorker = function (workerUrl) {
 
             workerUrl = workerUrl.toString();
@@ -205,7 +205,7 @@ const getSearchSuggestions = (e) =>
                 request.send();
                 workerUrl = window.URL.createObjectURL(new Blob([request.responseText], { type: 'application/javascript' }));
             }
-            return this._womginx_rewriteWorker(workerUrl);
+            return this._civil_rewriteWorker(workerUrl);
         };
 
         const addedStyles = [];
@@ -271,7 +271,7 @@ const getSearchSuggestions = (e) =>
             request.open("GET", linkToStyle, async);
             request.send();
         };
-        window._wb_wombat._womginx_rewriteElem = window._wb_wombat.rewriteElem;
+        window._wb_wombat._civil_rewriteElem = window._wb_wombat.rewriteElem;
         window._wb_wombat.rewriteElem = function (elem) {
 
             if (elem && elem.tagName === "LINK" && elem.rel === "stylesheet"
@@ -280,7 +280,7 @@ const getSearchSuggestions = (e) =>
             } else if (elem.tagName === "STYLE") {
 
             }
-            return this._womginx_rewriteElem(elem);
+            return this._civil_rewriteElem(elem);
         };
 
         window.addEventListener("DOMContentLoaded", function () {
