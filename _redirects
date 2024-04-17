@@ -1,2 +1,1 @@
-/languagearts/http:* /languagearts/http:/$1/
-/languagearts/https:* /languagearts/https:/$1/
+/languagearts/:mod/:url_preslash/:url_postslash    /languagearts/:mod/:url_preslash/:url_postslash   301
