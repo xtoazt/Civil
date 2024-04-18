@@ -1,21 +1,17 @@
-var cacheName = 'TIWcog';
-var filesToCache = [
-  '/sw.js'
-];
+importScripts('/uv/misc/config.js');
+importScripts('/uv/misc/worker.js');
+importScripts('/uv/uv.bundle.js');
+importScripts('/uv/uv.config.js');
+importScripts(__uv$config.sw || '/uv/uv.sw.js');
 
-self.addEventListener('install', function(e) {
-  e.waitUntil(
-    caches.open(cacheName).then(function(cache) {
-      return cache.addAll(filesToCache);
-    })
-  );
-  self.skipWaiting();
-});
+const uv = new UVServiceWorker();
+const dynamic = new Dynamic();
 
-self.addEventListener('fetch', function(e) {
-  e.respondWith(
-    caches.match(e.request).then(function(response) {
-      return response || fetch(e.request);
-    })
-  );
+let userKey = new URL(location).searchParams.get('userkey');
+self.dynamic = dynamic;
+
+self.addEventListener('fetch', (e) => {
+    e.respondWith(
+        uv.fetch(e)
+    );
 });

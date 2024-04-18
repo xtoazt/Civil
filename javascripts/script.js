@@ -26,7 +26,14 @@ urlInput.addEventListener("input", () => {
                                 a.addEventListener('click', (e, url = `https://www.google.com/search?q=${e.target.textContent.trim()}`) => {
                                     e.preventDefault();
 
-                                    window.location.href = '/i/' + __uv$config.encodeUrl(url);
+                                    sessionStorage.setItem('GoURL', __uv$config.encodeUrl(url));
+                                    const ms = localStorage.getItem('misc');
+
+                                    if (ms === 'true') {
+                                        window.location.href = '/i/el/' + __uv$config.encodeUrl(url);
+                                    } else {
+                                        window.location.href = '/i/' + __uv$config.encodeUrl(url);
+                                    }
                                 });
                             });
                     })();
