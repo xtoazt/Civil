@@ -1,3 +1,9 @@
+window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js', {
+        scope: '/',
+    });
+});
+
 const urlInput = document.querySelector(".urlInput"),
       suggestionsMenu = document.querySelector(".suggestions");
 
@@ -64,4 +70,3 @@ const getSearchSuggestions = (e) =>
         return suggestions.slice(0, 10);
     })
     .catch((error) => (console.error(error), []));
-
