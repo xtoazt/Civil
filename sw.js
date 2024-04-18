@@ -10,8 +10,18 @@ const dynamic = new Dynamic();
 let userKey = new URL(location).searchParams.get('userkey');
 self.dynamic = dynamic;
 
-self.addEventListener('fetch', (e) => {
-    e.respondWith(
-        uv.fetch(e)
-    );
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    (async function () {
+      if (await dynamic.route(event)) {
+        return await dynamic.fetch(event)
+      }
+
+      if (event.request.url.startsWith(location.origin + '/i/')) {
+        return await uv.fetch(event)
+      }
+
+      return await fetch(event.request)
+    })()
+  );
 });
