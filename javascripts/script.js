@@ -7,6 +7,8 @@ window.addEventListener('load', () => {
 const urlInput = document.querySelector(".urlInput"),
       suggestionsMenu = document.querySelector(".suggestions");
 
+const frame = document.querySelector('iframe');
+
 urlInput.addEventListener("input", () => {
     document.querySelector('.dropdownOptions').style.display = 'none';
     suggestionsMenu.style.display = 'flex';
@@ -32,14 +34,16 @@ urlInput.addEventListener("input", () => {
                                 a.addEventListener('click', (e, url = `https://www.google.com/search?q=${e.target.textContent.trim()}`) => {
                                     e.preventDefault();
 
-                                    sessionStorage.setItem('GoURL', __uv$config.encodeUrl(url));
-                                    const ms = localStorage.getItem('misc');
+                                    suggestionsMenu.style.display = 'none';
+                                    urlInput.style.display = 'none';
+                                    document.querySelector('.header').style.display = 'none';
+                                    document.querySelector('.dropdownOptions').style.display = 'none';
 
-                                    if (ms === 'true') {
-                                        window.location.href = '/i/el/' + __uv$config.encodeUrl(url);
-                                    } else {
-                                        window.location.href = '/i/' + __uv$config.encodeUrl(url);
-                                    }
+                                    frame.style.display = 'inline';
+                                    frame.style.width = '100%';
+                                    frame.style.height = '100%';
+
+                                    frame.src = '/i/' + __uv$config.encodeUrl(url);
                                 });
                             });
                     })();
