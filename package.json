@@ -1,7 +1,7 @@
 {
     "name": "civil-matrix",
     "version": "0.4.59",
-    "description": "Easily-reproducible anonymous web proxy fueled by both Ultraviolet and testcafe-hammerhead.",
+    "description": "Easily-reproducible anonymous web proxy fueled by both pure JavaScript and Ultraviolet.",
     "main": "src/index.js",
     "repository": {
         "type": "git",
