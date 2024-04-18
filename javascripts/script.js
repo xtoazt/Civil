@@ -44,6 +44,15 @@ urlInput.addEventListener("input", () => {
                                     frame.style.height = '100%';
 
                                     frame.src = '/i/' + __uv$config.encodeUrl(url);
+
+                                    frame.contentDocument.querySelectorAll('a')
+                                        .forEach((a) => {
+                                            a.addEventListener('click', (e) => {
+                                                e.preventDefault();
+
+                                                frame.src = a.href;
+                                            });
+                                        });
                                 });
                             });
                     })();
