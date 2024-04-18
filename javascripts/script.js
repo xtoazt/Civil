@@ -23,7 +23,7 @@ urlInput.addEventListener("input", () => {
                     (function() {
                         suggestionsMenu.querySelectorAll('li a')
                             .forEach((a) => {
-                                a.addEventListener('click', (e, url = a.getAttribute('href')) => {
+                                a.addEventListener('click', (e, url = `https://www.google.com/search?q=${e.target.textContent.trim()}`) => {
                                     e.preventDefault();
 
                                     window.location.href = '/i/' + __uv$config.encodeUrl(url);
