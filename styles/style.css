@@ -209,4 +209,37 @@ body
             outline: none;
         }
     }
+    .nav
+    {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        top: 10%;
+        left: 90%;
+        width: 100px;
+        height: 500px;
+        .ab,
+        .bk,
+        .fw,
+        .hm
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: #78ffd79c;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            ion-icon
+            {
+                color: #222;
+                width: 45px;
+                height: 45px;
+            }
+        }
+    }
 }

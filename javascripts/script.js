@@ -5,7 +5,8 @@ window.addEventListener('load', () => {
 });
 
 const urlInput = document.querySelector(".urlInput"),
-      suggestionsMenu = document.querySelector(".suggestions");
+      suggestionsMenu = document.querySelector(".suggestions"),
+      nav = document.querySelector('.nav');
 
 const frame = document.querySelector('iframe');
 
@@ -39,6 +40,7 @@ urlInput.addEventListener("input", () => {
                                     document.querySelector('.header').style.display = 'none';
                                     document.querySelector('.dropdownOptions').style.display = 'none';
 
+                                    frame.style.position = 'absolute';
                                     frame.style.display = 'inline';
                                     frame.style.width = '100%';
                                     frame.style.height = '100%';
@@ -53,6 +55,48 @@ urlInput.addEventListener("input", () => {
                                                 frame.src = a.href;
                                             });
                                         });
+
+                                    if (frame.style.display == 'inline') {
+                                        nav.style.display = 'flex';
+
+                                        nav.querySelector('.ab').addEventListener('click', () => {
+                                            const x = window.open();
+
+                                            x.document.head.innerHTML = 
+                                                `
+                                                    <style>
+                                                        *
+                                                        {
+                                                            margin: 0;
+                                                            padding: 0;
+                                                            box-sizing: border-box;
+                                                            overflow: hidden;
+                                                            &::-webkit-scrollbar
+                                                            {
+                                                                display: none;
+                                                            }
+                                                        }
+                                                    </style>
+                                                `;
+
+                                            x.document.body.innerHTML = 
+                                                `
+                                                    <iframe src="/i/${__uv$config.encodeUrl(url)}" style="position:absolute;border:none;outline:none;width:100%;height:100%;">
+                                                `;
+                                        });
+
+                                        nav.querySelector('.bk').addEventListener('click', () => {
+                                            frame.contentWindow.history.go(-1);
+                                        });
+
+                                        nav.querySelector('.fw').addEventListener('click', () => {
+                                            frame.contentWindow.history.go(+1);
+                                        });
+
+                                        nav.querySelector('.hm').addEventListener('click', () => {
+                                            window.location.href = 'https://civil-1.netlify.app';
+                                        });
+                                    }
                                 });
                             });
                     })();
