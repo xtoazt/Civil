@@ -1,0 +1,27 @@
+{
+    "name": "civil-matrix",
+    "version": "0.4.59",
+    "description": "Easily-reproducible anonymous web proxy fueled by both Ultraviolet and testcafe-hammerhead.",
+    "main": "src/index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Quartinal/matrix",
+        "directory": "."
+    },
+    "author": {
+        "name": "Jasper Quartarolo - https://github.com/Quartinal",
+        "email": "prehistorical.dinosaurs@outlook.com",
+        "url": "https://www.quartinal.com"
+    },
+    "license": "WTFPL",
+    "bugs": {
+        "url": "https://github.com/Quartinal/matrix/issues"
+    },
+    "homepage": "https://github.com/Quartinal/matrix?tab=readme-ov-file",
+    "dependencies": {
+        "testcafe-hammerhead": "31.7.1",
+        "@titaniumnetwork-dev/ultraviolet": "3.0.2",
+        "mime": "4.0.1",
+        "uuid": "9.0.1"
+    }
+}

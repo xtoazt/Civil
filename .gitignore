@@ -3,3 +3,6 @@
 
 # Dist directory (in case anything leaks into it)
 dist/
+
+# Node modules directory
+node_modules/
