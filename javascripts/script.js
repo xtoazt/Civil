@@ -10,6 +10,22 @@ const urlInput = document.querySelector(".urlInput"),
 
 const frame = document.querySelector('iframe');
 
+function hrefChange() {
+    const frameDoc = frame.contentDocument;
+    const links = frameDoc.querySelectorAll('a');
+
+    links.forEach((a) => {
+        a.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            if (frame.src !== a.href) {
+                frame.src = a.href;
+                hrefChange();
+            }
+        });
+    });
+};
+
 urlInput.addEventListener("input", () => {
     document.querySelector('.dropdownOptions').style.display = 'none';
     suggestionsMenu.style.display = 'flex';
@@ -47,14 +63,7 @@ urlInput.addEventListener("input", () => {
 
                                     frame.src = '/i/' + __uv$config.encodeUrl(url);
 
-                                    frame.contentDocument.querySelectorAll('a')
-                                        .forEach((a) => {
-                                            a.addEventListener('click', (e) => {
-                                                e.preventDefault();
-
-                                                frame.src = a.href;
-                                            });
-                                        });
+                                    hrefChange();
 
                                     if (frame.style.display == 'inline') {
                                         nav.style.display = 'flex';
@@ -79,9 +88,11 @@ urlInput.addEventListener("input", () => {
                                                     </style>
                                                 `;
 
+                                            const h = frame.contentWindow.location.href;
+
                                             x.document.body.innerHTML = 
                                                 `
-                                                    <iframe src="/i/${__uv$config.encodeUrl(url)}" style="position:absolute;border:none;outline:none;width:100%;height:100%;">
+                                                    <iframe src="${h}" style="position:absolute;border:none;outline:none;width:100%;height:100%;">
                                                 `;
                                         });
 
