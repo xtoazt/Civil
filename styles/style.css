@@ -242,4 +242,63 @@ body
             }
         }
     }
+    .container
+    {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        top: 20vh;
+        left: 0px;
+        padding: 40px;
+        background-color: transparent;
+        width: 100%;
+        height: auto;
+        div
+        {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 22px;
+            padding: 12px;
+            background-color: #2c2c2c;
+            border-radius: 35px;
+            width: 30vw;
+            height: 20vh;
+            transition: 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+            &:hover
+            {
+                box-shadow: 5px 9px 12px #00000034;
+                transform: rotate3d(1, 1, 2, 3deg) scale(1.14) skew(2deg);
+            }
+            input
+            {
+                padding-left: 10%;
+                background-color: #78ffd6;
+                border: none;
+                border-radius: 40px;
+                color: #222;
+                font-size: 18px;
+                font-weight: 400;
+                font-family: 'Alata', sans-serif;
+                width: 90%;
+                height: 60%;
+                &:hover,
+                &:focus
+                {
+                    outline: none;
+                }
+                &::placeholder
+                {
+                    color: #222;
+                    font-size: 18px;
+                    font-weight: 400;
+                    font-family: 'Alata', sans-serif;
+                }
+            }
+        }
+    }
 }
