@@ -2,7 +2,9 @@
 
 Easily-reproducible anonymous web proxy fueled by both pure JavaScript (coming soon) and Ultraviolet.
 
-**Note:** Based on a lot of feedback from my friends @PrestonT500 and @accessgames, there will be an alternative Ultraviolet-powered version of Civil in a couple months! This repo will still be frequently updated, though.
+~~**Note:** Based on a lot of feedback from my friends @PrestonT500 and @accessgames, there will be an alternative Ultraviolet-powered version of Civil in a couple months! This repo will still be frequently updated, though.~~
+
+**Notice:** This repo is now powered by Ultraviolet.
 
 ### Note
 

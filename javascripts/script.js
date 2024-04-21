@@ -34,7 +34,79 @@ urlInput.addEventListener("input", () => {
         suggestionsMenu.style.display = 'none';
         document.querySelector('.dropdownOptions').style.display = 'flex';
     }
-    if (e.startsWith('https') || e.startsWith('http')) suggestionsMenu.style.display = 'none';
+    if (e.startsWith('https') || e.startsWith('http')) {
+        suggestionsMenu.style.display = 'none';
+        urlInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const url = urlInput.value;
+
+                if (url.match(/(https?:\/\/([-\w\.]+[-\w]){1,63}\.[a-zA-Z]{2,6}(\/[^\s]*)?)/g)) {
+                    suggestionsMenu.style.display = 'none';
+                    urlInput.style.display = 'none';
+                    document.querySelector('.header').style.display = 'none';
+                    document.querySelector('.dropdownOptions').style.display = 'none';
+
+                    frame.style.position = 'absolute';
+                    frame.style.display = 'inline';
+                    frame.style.width = '100%';
+                    frame.style.height = '100%';
+
+                    frame.src = '/i/' + __uv$config.encodeUrl(url);
+
+                    hrefChange();
+
+                    if (frame.style.display == 'inline') {
+                        nav.style.display = 'flex';
+
+                        nav.querySelector('.ab').addEventListener('click', () => {
+                            const x = window.open();
+
+                            x.document.head.innerHTML = 
+                                `
+                                    <style>
+                                        *
+                                        {
+                                            margin: 0;
+                                            padding: 0;
+                                            box-sizing: border-box;
+                                            overflow: hidden;
+                                            &::-webkit-scrollbar
+                                            {
+                                                display: none;
+                                            }
+                                        }
+                                    </style>
+                                `;
+
+                            const h = frame.contentWindow.location.href;
+
+                            x.document.body.innerHTML = 
+                                `
+                                    <iframe src="${h}" style="position:absolute;border:none;outline:none;width:100%;height:100%;">
+                                `;
+                        });
+
+                        nav.querySelector('.bk').addEventListener('click', () => {
+                            frame.contentWindow.history.go(-1);
+                        });
+
+                        nav.querySelector('.fw').addEventListener('click', () => {
+                            frame.contentWindow.history.go(+1);
+                        });
+
+                        nav.querySelector('.hm').addEventListener('click', () => {
+                            window.location.href = window.location.href;
+                        });
+                    }
+                } else {
+                    alert("Please enter a valid URL");
+                    setTimeout(() => {
+                        window.alert = null;
+                    }, 3000);
+                }
+            }
+        });
+    }
     let debounceTimeout;
     clearTimeout(debounceTimeout);
     debounceTimeout = setTimeout(() => {
@@ -105,7 +177,7 @@ urlInput.addEventListener("input", () => {
                                         });
 
                                         nav.querySelector('.hm').addEventListener('click', () => {
-                                            window.location.href = 'https://civil-1.netlify.app';
+                                            window.location.href = window.location.href;
                                         });
                                     }
                                 });

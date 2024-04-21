@@ -1,21 +1,36 @@
 const panicKey = document.querySelector('.container div .panicKey');
+const urlToOpen = document.querySelector('.container div .urlToOpen');
 
-panicKey.addEventListener('input', (e) => {
+panicKey.addEventListener('click', (e) => {
     e.preventDefault();
 
-    panicKey.addEventListener('keypress', (e) => {
-        e.preventDefault();
-    
-        if (e.key === 'Enter') {
-            const selectedKey = panicKey.value.trim() || ']';
-    
-            sessionStorage.setItem('panicKey', selectedKey);
+    const p = prompt("Do you want these settings to last throughout multiple sessions [yes/no]");
 
+    if (p === 'yes') {
+        panicKey.addEventListener('input', (e) => {
+            e.preventDefault();
+        
             panicKey.addEventListener('keypress', (e) => {
-                if (e.key === sessionStorage.getItem('panicKey')) {
-                    
+                e.preventDefault();
+            
+                if (e.key === 'Enter') {
+                    const selectedKey = panicKey.value.trim() || ']';
+            
+                    localStorage.setItem('panicKey', selectedKey);
+        
+                    panicKey.addEventListener('keypress', (e) => {
+                        if (e.key === localStorage.getItem('panicKey')) {
+                            const url = urlToOpen.value;
+
+                            if (url == '' || !url.startsWith('https') || !url.startsWith('http')) {
+                                alert("Please provide a valid URL");
+                            }
+
+                            
+                        }
+                    });
                 }
             });
-        }
-    });
+        });
+    }
 });
