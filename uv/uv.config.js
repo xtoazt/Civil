@@ -1,6 +1,6 @@
 self.__uv$config = {
     prefix: '/i/',
-    bare: 'https://bare.benrogo.net',
+    bare: 'https://bear.lema.cl',
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
     handler: '/uv/uv.handler.js',

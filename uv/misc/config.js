@@ -5,7 +5,7 @@ self.__dynamic$config = {
     logLevel: 0,
     bare: {
       version: 2,
-      path: 'https://bare.benrogo.net',
+      path: 'https://bear.lema.cl',
     },
     tab: {
       title: null,
