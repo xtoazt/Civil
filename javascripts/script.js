@@ -109,7 +109,7 @@ urlInput.addEventListener("input", () => {
     }
     let debounceTimeout;
     clearTimeout(debounceTimeout);
-    debounceTimeout = setTimeout(() => {
+    debounceTimeout ??= setTimeout(() => {
         getSearchSuggestions(e)
             .then((e) => {
                 suggestionsMenu.innerHTML = "";
