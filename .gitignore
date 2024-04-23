@@ -6,3 +6,6 @@ dist/
 
 # Node modules directory
 node_modules/
+
+# Local Vercel folder
+.vercel/
