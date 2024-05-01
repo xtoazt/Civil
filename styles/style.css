@@ -186,7 +186,8 @@ body
                     transition: 0.6s cubic-bezier(0.86, 0, 0.07, 1);
                     &:hover
                     {
-                        transform: scale(+1.35);
+                        filter: brightness(80%);
+                        transform: scale(+0.90) rotate(-10deg);
                     }
                 }
             }
